@@ -230,17 +230,21 @@ body {
 
 .navbar-logo-badge {
     position: relative;
-    width: 46px;
-    height: 46px;
-    background: var(--primary-navy);
-    border-radius: 12px;
+    width: 52px;
+    height: 52px;
+    background: #ffffff; /* White background for the logo icon */
+    border-radius: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    box-shadow: 0 4px 16px rgba(15,23,42,0.2), 0 0 0 1px rgba(212,175,55,0.25);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 16px rgba(15,23,42,0.1), 0 0 0 1px rgba(212,175,55,0.25);
+    transition: all 0.3s ease;
     overflow: hidden;
+}
+
+body.dark-mode .navbar-logo-badge {
+    background: var(--primary-navy);
 }
 
 .navbar-logo-badge::before {
@@ -257,12 +261,12 @@ body {
 }
 
 .navbar-logo-img {
-    height: 30px;
-    width: auto;
+    height: 38px;
+    width: 38px;
     object-fit: contain;
-    filter: brightness(0) invert(1);
     position: relative;
     z-index: 1;
+    transition: transform 0.3s ease;
 }
 
 .logo-text-group {
@@ -769,8 +773,15 @@ body.dark-mode .nav-links li a:hover {
 .services-saas-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+/* Center the last item if it's alone in a row (for 7 items, this helps on 3-col layouts) */
+@media (min-width: 1024px) {
+    .services-saas-grid > *:last-child:nth-child(3n+1) {
+        grid-column: 2 / 3;
+    }
 }
 
 .saas-service-card {
@@ -808,63 +819,137 @@ body.dark-mode .nav-links li a:hover {
     transform: scaleX(1);
 }
 
-.service-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    background: #f8fafc;
+.service-img-wrapper {
+    width: 100%;
+    height: 200px;
     border-radius: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8rem;
-    color: var(--primary-navy);
+    overflow: hidden;
     margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.saas-service-card:hover .service-icon-wrapper {
-    background: var(--primary-navy);
-    color: white;
-}
-
-.service-saas-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--primary-navy);
-    margin-bottom: 1rem;
+    background: #f1f5f9;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 .service-img {
     width: 100%;
-    max-height: 150px;
+    height: 100%;
     object-fit: cover;
-    margin-bottom: 0.8rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.saas-service-card:hover .service-img {
+    transform: scale(1.08);
+}
+
+.service-saas-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
 }
 
 .service-price {
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 800;
     color: var(--primary-gold);
-    margin-bottom: 0.6rem;
-    text-align: left;
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    background: rgba(212, 175, 55, 0.08);
+    border-radius: 8px;
 }
+
+/* Featured Service Card (Comprehensive) */
+.featured-service-card {
+    border: 2px solid var(--primary-gold);
+    background: linear-gradient(135deg, #ffffff 0%, #fdfbf7 100%);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+}
+
+.comprehensive-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--primary-gold);
+    color: white;
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+}
+
+body.dark-mode .featured-service-card {
+    background: linear-gradient(135deg, #1e293b 0%, #162032 100%);
+}
+
+body.dark-mode .service-img-wrapper {
+    background: #0f172a;
+}
+
 
 
 .service-link {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
-    color: var(--primary-gold);
-    font-weight: 600;
+    justify-content: center;
+    gap: 0.8rem;
+    background: var(--primary-navy);
+    color: white;
+    font-weight: 700;
     text-decoration: none;
-    font-size: 1rem;
-    transition: gap 0.3s ease;
+    font-size: 0.9rem;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    margin-top: 1.5rem;
+    border: none;
+    border-bottom: 4px solid #000000; /* 3D Depth */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%; /* Make it a full-width block button for impact */
+}
+
+.service-link i {
+    font-size: 0.85rem;
+    transition: transform 0.3s ease;
 }
 
 .saas-service-card:hover .service-link {
-    gap: 0.8rem;
+    background: var(--primary-gold);
+    color: var(--primary-navy);
+    border-bottom-color: #b8860b;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+}
+
+.service-link:active {
+    transform: translateY(2px);
+    border-bottom-width: 0;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.saas-service-card:hover .service-link i {
+    transform: translateX(5px);
+}
+
+/* Specific button for the featured card */
+.featured-service-card .service-link {
+    background: linear-gradient(135deg, var(--primary-gold) 0%, #b8860b 100%);
+    color: var(--primary-navy);
+    border-bottom-color: #8a6508;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+}
+
+.featured-service-card:hover .service-link {
+    background: var(--primary-navy);
+    color: white;
+    border-bottom-color: #000000;
 }
 
 /* =========================================
@@ -2480,10 +2565,11 @@ body.dark-mode .nav-links li a:hover {
 }
 
 .footer-brand-col .footer-logo {
-    height: 55px;
+    height: 70px;
     width: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
 }
 
 .footer-brand-name {

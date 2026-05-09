@@ -1,0 +1,28 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gold-shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="50%" stop-color="#FFF5D2" />
+      <stop offset="100%" stop-color="#B8860B" />
+    </linearGradient>
+    <filter id="premium-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Circle (Subtle Mandala Pattern) -->
+  <circle cx="100" cy="100" r="95" stroke="#D4AF37" stroke-width="1" stroke-dasharray="2 4" opacity="0.3" />
+  
+  <!-- Outer Shield Frame -->
+  <path d="M100 25C100 25 150 40 150 90C150 140 100 175 100 175C100 175 50 140 50 90C50 40 100 25 100 25Z" stroke="url(#gold-shine)" stroke-width="8" stroke-linejoin="round" filter="url(#premium-glow)" />
+
+  <!-- Brain/Mind Silhouette -->
+  <path d="M85 75C70 75 65 85 65 95C65 110 80 120 100 120C120 120 135 110 135 95C135 85 130 75 115 75C115 65 105 60 100 60C95 60 85 65 85 75Z" fill="url(#gold-shine)" filter="url(#premium-glow)" />
+  
+  <!-- Neural Path / Lightning (representing breakthrough) -->
+  <path d="M100 80L90 100H110L100 120" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- KLP Text at Bottom -->
+  <text x="100" y="155" text-anchor="middle" fill="url(#gold-shine)" font-family="Arial, sans-serif" font-weight="bold" font-size="16">K L P</text>
+</svg>
