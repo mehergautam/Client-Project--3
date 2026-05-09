@@ -2842,6 +2842,10 @@ body.no-scroll {
 }
 
 @media (max-width: 992px) {
+    .nav-cta-btn {
+        display: none;
+    }
+
     .mobile-menu-toggle {
         display: flex;
         margin-left: 1.5rem;
@@ -2931,21 +2935,39 @@ body.no-scroll {
         padding: 0.8rem 5%;
     }
 
-    .nav-cta-btn span {
+    .navbar-logo-badge {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+    }
+
+    .navbar-logo-img {
+        height: 30px;
+        width: 30px;
+    }
+
+    .logo-abbr {
+        font-size: 1.35rem;
+    }
+
+    .logo-sub {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+    }
+
+    /* Hide the CTA button on mobile to avoid the "yellow arrow" issue */
+    .nav-cta-btn {
         display: none;
     }
 
-    .nav-cta-btn {
-        padding: 0.7rem;
-        width: 40px;
-        height: 40px;
-        justify-content: center;
-        border-radius: 50%;
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
-
-    .nav-cta-btn i {
-        margin: 0;
-        font-size: 1rem;
+    
+    .mobile-menu-toggle {
+        margin-left: 0.5rem;
     }
 
     .hero-title {
@@ -3019,6 +3041,24 @@ body.no-scroll {
 }
 
 @media (max-width: 480px) {
+    .logo-abbr {
+        font-size: 1.1rem;
+    }
+    
+    .logo-sub {
+        display: none; /* Hide academy text on very small screens to save space */
+    }
+
+    .navbar-logo-badge {
+        width: 38px;
+        height: 38px;
+    }
+
+    .navbar-logo-img {
+        height: 26px;
+        width: 26px;
+    }
+
     .hero-title {
         font-size: 2.2rem;
     }
