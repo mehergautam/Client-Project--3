@@ -1,4 +1,4 @@
-# 🌟 KLP — Kartavya Learning Planet
+# 🌟 KLP — Kartavya Learnng Planet
 
 <div align="center">
 
